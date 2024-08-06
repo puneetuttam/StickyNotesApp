@@ -5,7 +5,6 @@ import Spinner from "../icons/Spinner";
 import DeleteBtn from "./DeleteBtn";
 
 const NoteCard = ({ note, setNotes }) => {
-    console.log("=>", note);
     const [saving, setSaving] = useState(false);
     const keyUpTimer = useRef(null);
 
