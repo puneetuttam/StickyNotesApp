@@ -8,6 +8,8 @@ const NoteProvider = ({ children }) => {
     const [notes, setNotes] = useState([]);
 
     const [loading, setLoading] = useState(true);
+    const [selectedNote, setSelectedNote] = useState(null);
+
     const init = async () => {
         const res = await db.notes.list();
         setNotes(res.documents);
@@ -16,7 +18,7 @@ const NoteProvider = ({ children }) => {
     useEffect(() => {
         init();
     }, []);
-    const contextData = {notes,setNotes};
+    const contextData = {notes,setNotes,selectedNote,setSelectedNote};
     return (
         <NoteContext.Provider value={contextData}>
             {loading ? (
